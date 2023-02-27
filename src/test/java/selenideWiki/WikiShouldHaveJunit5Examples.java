@@ -19,6 +19,9 @@ public class WikiShouldHaveJunit5Examples {
         $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
         // Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
         $("#wiki-pages-box").$(byText("SoftAssertions")).click();
-        $("div.markdown-body").shouldHave(text("JUnit5 extend test class"));
+        $("div.markdown-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
+                "class Tests {\n" +
+                "  @Test\n" +
+                "  void test() {"));
     }
 }
